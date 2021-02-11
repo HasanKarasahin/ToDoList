@@ -14,7 +14,7 @@
 
   <div class="form-group">
     <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleAddModal" style="margin-bottom: 5px;border-radius: 5px;">Ekle</button>
-    <button type="button" class="btn btn-success btn-edit" data-toggle="modal" data-target="#exampleModal" style="margin-bottom: 5px;border-radius: 5px;" disabled>Düzenle</button>
+    <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleUpdateModal" style="margin-bottom: 5px;border-radius: 5px;">Düzenle</button>
     <button type="button" class="btn btn-success btn-delete" data-toggle="modal" data-target="#deleteModal" style="margin-bottom: 5px;border-radius: 5px;">Sil</button>
     <input type="text" class="form-control" id="myInput" placeholder="Arama" style="width: 250px;float: right;border: 1px solid green;border-radius: 5px;">
   </div>
@@ -96,6 +96,35 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
           <button type="button" class="btn btn-primary">Kaydet</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal1 -->
+<div class="modal fade" id="exampleUpdateModal" tabindex="-1" aria-labelledby="exampleUpdateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleUpdateModalLabel">To-Do Düzenle</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body">
+        <form id="exampleFormModal">
+              <input type="hidden" name="id" value="0">
+              <div class="form-group">
+                <input type="text" class="form-control" name="toDo" placeholder="Yapılacak iş" required>
+              </div>
+              <br/>
+              <div class="form-group">
+                <input type="text" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih" required>
+              </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary">Güncelle</button>
         </div>
     </div>
   </div>

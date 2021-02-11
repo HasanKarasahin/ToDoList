@@ -31,6 +31,29 @@ $( document ).ready(function() {
                 }
               });
         })
+
+
+        var exampleUpdateModal = document.getElementById('exampleUpdateModal')
+        var modalBodyUpdateButton = exampleUpdateModal.querySelector('.modal-footer .btn.btn-primary')
+        var modalUpdateForm = exampleUpdateModal.querySelector('.modal-body #exampleFormModal')
+
+        $(modalBodyUpdateButton).click(function () {
+            $.post({
+                url: "Actions/ToDo/Action_Todo_Update.php",
+                data: $(modalUpdateForm).serialize(),
+                success: function(data) {
+                    console.table(data);
+                    $("tbody").append(data);
+                },
+                error:function(e){
+                    alert("error");
+                    console.log(e);
+                }
+              });
+        })
+
+
+
         
         exampleAddModal.addEventListener('show.bs.modal', function (event) {
             // Button that triggered the modal

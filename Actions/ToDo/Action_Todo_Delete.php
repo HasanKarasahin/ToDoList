@@ -1,20 +1,27 @@
 <?php
 
 include_once "../../functions.php";
-
-$json_a = getDataFromJsonFile("db.json");
-
+include_once "../ToDo/Action.php";
 
 
-echo "<pre>";
-unset($json_a['list'][1]); 
-print_r($json_a['list']);
-echo "</pre>";
+class Action_Todo_Delete extends Action {
 
-setJsonFile('db.json',$json_a);
+    public $itemArr;
+    public $item;
 
-exit;
+    function __construct() {
+    }
 
+    function deleteItem($id) {
+        $json_a = getDataFromJsonFile("db.json");
+        unset($json_a['list'][$id]);
+        setJsonFile('db.json',$json_a);
+    }
+}
+
+$tstObj = new Action_Todo_Delete();
+
+$tstObj->deleteItem(0);
 
 
 ?>
