@@ -5,13 +5,11 @@ include_once "../../Model/ToDo/Item.php";
 
 
 class Action_Todo_Add extends Action {
-    public $itemArr;
-    public $item;
   
     function addItem($item) {
       $json_a = getDataFromJsonFile("db.json");
-      $item->set_Id();
-      array_push($json_a['list'],(Array)($this->item));
+      $item->set_Id(count($json_a['list'])+1);
+      array_push($json_a['list'],(Array)($item));
       setJsonFile('db.json',$json_a);
     }
 
@@ -27,6 +25,6 @@ class Action_Todo_Add extends Action {
 
   $tstObj = new Action_Todo_Add();
   $tstObj->addItem($item);
-  $tstObj->display("<tr> <td> 1 </td> <td> ".$item->get_toDo()."</td> <td> 17.03.1996 </td> <td> ".$item->get_endDate()." </td> <td> Yapılmadı </td>");
+  $tstObj->display("<tr> <td> ".$item->get_Id()." </td> <td> ".$item->get_toDo()."</td> <td> 17.03.1996 </td> <td> ".$item->get_endDate()." </td> <td> Yapılmadı </td>");
 
 ?>

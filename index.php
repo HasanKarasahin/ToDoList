@@ -37,6 +37,7 @@
                 <th scope="col">Oluşturulma Tarihi</th>
                 <th scope="col">Bitmesi Plananlanan Tarih</th>
                 <th scope="col">Durum</th>
+                <th scope="col">İşlemler</th>
               </tr>
             </thead>
             <tbody id="myTable">

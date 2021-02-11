@@ -1,6 +1,5 @@
 <?php 
 
-
 function getDataFromJsonFile($jsonFileName){
     $filename = '../../assets/jsonfiles/'.$jsonFileName;
     $json_b = array('sonuc'=>-1);
@@ -21,5 +20,20 @@ function setJsonFile($jsonFileName,$data){
         return false;
     }
 }
+
+function getButtonsViews($itemId,$arrButtons){
+
+    //degişkeni daha iyi yere konumlandır.
+    $arrButtonsView=array('update'=>"<button type='button' class='btn btn-secondary btn-update' data-item-id=".$itemId.">Update</button>",
+                          'delete'=>"<button type='button' class='btn btn-danger btn-delete' data-item-id=".$itemId.">Delete</button>");
+
+    $temp="";                      
+    foreach ($arrButtons as $key => $value) {
+        $temp .= $arrButtonsView[$arrButtons[$key]];
+    }    
+    return $temp;
+}
+
+
 
 ?>

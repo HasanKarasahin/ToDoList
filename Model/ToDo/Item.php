@@ -8,11 +8,14 @@ public $id;
 public $toDo;
 public $createdTime;
 public $endDate;
-public $status;
+public $done; // yapıldı-yapılmadı
+public $status; // silindi-silinmedi
 
 function __construct() {
-    $this->createdTime=getdate();
-    $this->status='1';
+    $today = date("d.m.y");
+    $this->createdTime=$today;
+    $this->done='0'; //yapılmadı
+    $this->status='1'; //silinmedi
 }
 
 // Methods
@@ -39,6 +42,13 @@ function get_id() {
   }
   function get_endDate() {
     return $this->endDate;
+  }
+
+  function set_done($done) {
+    $this->done = $done;
+  }
+  function get_done() {
+    return $this->done;
   }
 
   function set_status($status) {
