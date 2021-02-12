@@ -25,6 +25,6 @@ class Action_Todo_Add extends Action {
 
   $tstObj = new Action_Todo_Add();
   $tstObj->addItem($item);
-  $tstObj->display("<tr> <td> ".$item->get_Id()." </td> <td> ".$item->get_toDo()."</td> <td> 17.03.1996 </td> <td> ".$item->get_endDate()." </td> <td> Yapılmadı </td>");
+  $tstObj->display("<tr> <td> ".$item->get_Id()." </td> <td> ".$item->get_toDo()."</td> <td> 17.03.1996 </td> <td> ".$item->get_endDate()." </td> <td> Yapılmadı </td> <td> ".getButtonsViews($item->get_Id(),['delete'])." </td>");
 
 ?>

@@ -8,6 +8,37 @@
   <title>Todo List</title>
   <link rel="stylesheet" href="assets/css/boostrap5.0.0Beta.css">
   <link rel="stylesheet" href="assets/css/style.css">
+
+
+  <script src="assets/js/jquery3.5.1.js"></script>
+<script>
+
+
+    function fnDelete($id) {
+        postAjax($id,'Todo/Action_Todo_Delete');
+    }
+
+    function fnUpdate($id) {
+      postAjax($id,'Todo/Action_Todo_Update');
+    }
+
+    function postAjax($id,$filePath) {
+      $.post({
+        url: "/Actions/"+$filePath+".php",
+        data: {id:$id},
+        success: function(data) {
+
+            $( "tr[data-item-id='"+$id+"']" ).hide();
+
+        },
+        error:function(err){
+          console.log("Error. Method:postAjax")
+        }
+      });
+    }
+
+</script>
+
 </head>
 
 <body class="p-3 mb-2 bg-primary">
@@ -132,7 +163,7 @@
 </div>
 
   <script src="assets/js/boostrapJS.js"></script>
-  <script src="assets/js/jquery3.5.1.js"></script>
+ 
   <script src="assets/js/app.js"></script>
 
 </body>

@@ -6,14 +6,6 @@ $( document ).ready(function() {
         success: function(data) {
             console.table(data);
             $("tbody").append(data);
-
-
-            $(".btn-delete").on('click',(e)=>{
-
-                $(".btn-delete").hide();
-                }
-            )
-
         },
         error:function(e){
             alert("error");
