@@ -46,7 +46,6 @@
   <div class="form-group">
     <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleAddModal" style="margin-bottom: 5px;border-radius: 5px;">Ekle</button>
     <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleUpdateModal" style="margin-bottom: 5px;border-radius: 5px;">Düzenle</button>
-    <button type="button" class="btn btn-success btn-delete" data-toggle="modal" data-target="#deleteModal" style="margin-bottom: 5px;border-radius: 5px;">Sil</button>
     <input type="text" class="form-control" id="myInput" placeholder="Arama" style="width: 250px;float: right;border: 1px solid green;border-radius: 5px;">
   </div>
 
