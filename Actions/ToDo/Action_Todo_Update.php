@@ -9,7 +9,16 @@ class Action_Todo_Update extends Action {
 
     function updateItem($id,$newItem) {
         $json_a = getDataFromJsonFile("db.json");
-        $json_a['list'][$id]=$newItem;
+        //$json_a['list'][$id]=$newItem;
+
+        foreach ($json_a['list'] as $key => $value) {
+          if($id==$json_a['list'][$key]['id']){
+              $json_a['list'][$key]=$newItem;
+             break;
+          }
+      }
+
+
         setJsonFile('db.json',$json_a);
       }
 }

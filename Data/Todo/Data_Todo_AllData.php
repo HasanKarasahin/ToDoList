@@ -9,7 +9,7 @@ if(isset($json_a['sonuc']) && $json_a['sonuc']=-1){
 }else{
     foreach ($json_a['list'] as $key=>$value) {
         if($value['status']==1){
-            print_r("<tr data-item-id=".$value['id']."> <td>". $value['id'] ."</td> <td> ".$value['toDo']." </td> <td> ".$value['createdTime']." </td> <td> ".$value['endDate']." </td> <td> ".($value['done']==1?'Yapıldı':'Yapılmadı')." </td> <td> ".getButtonsViews($value['id'],['delete'])." </td> </tr>");
+            print_r("<tr data-item-id=".$value['id']."> <td>". $value['id'] ."</td> <td> ".$value['toDo']." </td> <td> ".$value['createdTime']." </td> <td> ".$value['endDate']." </td> <td> ".($value['done']==1?'Yapıldı':'Yapılmadı')." </td> <td> ".getButtonsViews($value['id'],['delete','update'])." </td> </tr>");
         }
     }
 }

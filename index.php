@@ -15,11 +15,42 @@
 
 
     function fnDelete($id) {
-        postAjax($id,'Todo/Action_Todo_Delete');
+
+        $filePath="Todo/Action_Todo_Delete";
+
+        $.post({
+        url: "/Actions/"+$filePath+".php",
+        data: {id:$id},
+        success: function(data) {
+
+            $( "tr[data-item-id='"+$id+"']" ).hide();
+
+        },
+        error:function(err){
+          console.log("Error. Method:postAjax")
+        }
+      });
     }
 
     function fnUpdate($id) {
-      postAjax($id,'Todo/Action_Todo_Update');
+
+      $filePath="Todo/Action_Todo_Update"
+
+      $.post({
+        url: "/Actions/"+$filePath+".php",
+        data: {id:$id,toDo:'Yeni',endDate:'17.03.1996'},
+        success: function(data) {
+
+          //TO-DO Güncellenecek.
+            $( "tr[data-item-id='"+$id+"']" ).;
+
+        },
+        error:function(err){
+          console.log("Error. Method:postAjax")
+        }
+      });
+
+
     }
 
     function postAjax($id,$filePath) {
