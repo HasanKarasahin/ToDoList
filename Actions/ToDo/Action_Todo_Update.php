@@ -34,5 +34,8 @@ $newItem->set_endDate($_POST['endDate']);
 $tstObj->updateItem($_POST['id'],$newItem);
 
 
+header('Location: /',true);
+
+
 
 ?>

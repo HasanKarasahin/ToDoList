@@ -23,7 +23,7 @@ class Action_Todo_Delete extends Action {
 
 
         foreach ($json_a['list'] as $key => $value) {
-            if(1==$json_a['list'][$key]['status']){
+            if($id==$json_a['list'][$key]['id']){
                 $json_a['list'][$key]['status']="0";
                break;
             }

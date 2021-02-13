@@ -24,7 +24,7 @@ function setJsonFile($jsonFileName,$data){
 function getButtonsViews($itemId,$arrButtons){
 
     //degişkeni daha iyi yere konumlandır.
-    $arrButtonsView=array('update'=>"<button type='button' class='btn btn-secondary btn-update' onclick=fnUpdate(".$itemId.")>Update</button>",
+    $arrButtonsView=array('update'=>"<button type='submit' class='btn btn-secondary btn-update' onclick=fnUpdate(".$itemId.")>Update</button>",
                           'delete'=>"<button type='button' class='btn btn-danger btn-delete' onclick=fnDelete(".$itemId.")>Delete</button>");
 
     $temp="";                      

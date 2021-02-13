@@ -13,9 +13,9 @@ $( document ).ready(function() {
       });
 
         var exampleAddModal = document.getElementById('exampleAddModal')
-        var modalBodyButton = exampleAddModal.querySelector('.modal-footer .btn.btn-primary')
-        var modalForm = exampleAddModal.querySelector('.modal-body #exampleFormModal')
-
+        //var modalBodyButton = exampleAddModal.querySelector('.modal-footer .btn.btn-primary')
+        //var modalForm = exampleAddModal.querySelector('.modal-body #exampleFormModal')
+/*
         $(modalBodyButton).click(function () {
             $.post({
                 url: "Actions/ToDo/Action_Todo_Add.php",
@@ -29,7 +29,7 @@ $( document ).ready(function() {
                     console.log(e);
                 }
               });
-        })
+        })*/
 
 
         var exampleUpdateModal = document.getElementById('exampleUpdateModal')

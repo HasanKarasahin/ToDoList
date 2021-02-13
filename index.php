@@ -1,4 +1,4 @@
-<?php ?>
+<?php ob_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +36,14 @@
 
     function fnUpdate($id) {
 
+/*
+      $('#exampleAddModal').modal('toggle');
+      let exampleAddModal = document.getElementById('exampleAddModal');
+      let modalBodyButton = exampleAddModal.querySelector('.modal-footer .btn.btn-primary')
+
+
+      console.log($("#exampleAddModal"));*/
+
       $filePath="Todo/Action_Todo_Update"
 
       $.post({
@@ -44,7 +52,7 @@
         success: function(data) {
 
           //TO-DO Güncellenecek.
-            $( "tr[data-item-id='"+$id+"']" ).;
+            $( "tr[data-item-id='"+$id+"']" );
 
         },
         error:function(err){
@@ -78,7 +86,6 @@
 
   <div class="form-group">
     <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleAddModal" style="margin-bottom: 5px;border-radius: 5px;">Ekle</button>
-    <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleUpdateModal" style="margin-bottom: 5px;border-radius: 5px;">Düzenle</button>
     <input type="text" class="form-control" id="myInput" placeholder="Arama" style="width: 250px;float: right;border: 1px solid green;border-radius: 5px;">
   </div>
 
@@ -95,7 +102,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">Sıra</th>
                 <th scope="col">Yapılacak İş</th>
                 <th scope="col">Oluşturulma Tarihi</th>
                 <th scope="col">Bitmesi Plananlanan Tarih</th>
@@ -146,8 +153,9 @@
         <h5 class="modal-title" id="exampleAddModalLabel">To-Do Ekle</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form id="exampleFormModal" METHOD="post" Action="Actions/ToDo/Action_Todo_Add.php">
         <div class="modal-body">
-        <form id="exampleFormModal">
+        
               <div class="form-group">
                 <input type="text" class="form-control" name="toDo" placeholder="Yapılacak iş" required>
               </div>
@@ -155,13 +163,14 @@
               <div class="form-group">
                 <input type="text" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih" required>
               </div>
-        </form>
+        
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-          <button type="button" class="btn btn-primary">Kaydet</button>
+          <button type="submit" class="btn btn-primary">Kaydet</button>
         </div>
     </div>
+    </form>
   </div>
 </div>
 
