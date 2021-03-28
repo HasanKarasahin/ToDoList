@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
     $.post({
-        url: "/Data/Todo/Data_Todo_AllData.php",
+        url: window.location.href+"/Data/Todo/Data_Todo_AllData.php",
         data: {name:"Hasan",surname:"Karasahin"},
         success: function(data) {
             console.table(data);
@@ -32,13 +32,13 @@ $( document ).ready(function() {
         })*/
 
 
-        var exampleUpdateModal = document.getElementById('exampleUpdateModal')
+        /*var exampleUpdateModal = document.getElementById('exampleUpdateModal')
         var modalBodyUpdateButton = exampleUpdateModal.querySelector('.modal-footer .btn.btn-primary')
         var modalUpdateForm = exampleUpdateModal.querySelector('.modal-body #exampleFormModal')
 
         $(modalBodyUpdateButton).click(function () {
             $.post({
-                url: "Actions/ToDo/Action_Todo_Update.php",
+                url: window.location.href+"/Actions/ToDo/Action_Todo_Update.php",
                 data: $(modalUpdateForm).serialize(),
                 success: function(data) {
                     console.table(data);
@@ -49,7 +49,7 @@ $( document ).ready(function() {
                     console.log(e);
                 }
               });
-        })
+        })*/
 
 
 
@@ -64,6 +64,39 @@ $( document ).ready(function() {
         
         });
 
+
+
+    $('#exampleUpdateModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var modal = $(this)
+        modal.find('#id').val(button.data('todo-id'))
+        console.log(modal.find('.btnUpdate'));
+
+        modal.find('.btnUpdate').click(()=>{
+            $.post({
+                url: window.location.href+"Actions/ToDo/Action_Todo_Update.php",
+                data: $(exampleUpdateFormModal).serialize(),
+                success: function(data) {
+                    console.table(data);
+                    //$("tbody").append(data);
+                },
+                error:function(e){
+                    alert("error");
+                    console.log(e);
+                }
+            });
+        });
+
+
+
+        /*
+         var recipient = button.data('whatever') // Extract info from data-* attributes
+         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+         var modal = $(this)
+         modal.find('.modal-title').text('New message to ' + recipient)
+         modal.find('.modal-body input').val(recipient)*/
+    })
 
 
        

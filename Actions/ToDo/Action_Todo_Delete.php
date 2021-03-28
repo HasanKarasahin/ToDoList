@@ -1,6 +1,7 @@
 <?php
 
 include_once "../../functions.php";
+include_once "../../dbConecttion.php";
 include_once "../ToDo/Action.php";
 
 
@@ -13,24 +14,9 @@ class Action_Todo_Delete extends Action {
     }
 
     function deleteItem($id) {
-        $json_a = getDataFromJsonFile("db.json");
-        //unset($json_a['list'][$id]);
-        setJsonFile('db.json',$json_a);
+        print_r($id);
+        deleteTodo($id);
     }
-
-    function updateItem($id) {
-        $json_a = getDataFromJsonFile("db.json");
-
-
-        foreach ($json_a['list'] as $key => $value) {
-            if($id==$json_a['list'][$key]['id']){
-                $json_a['list'][$key]['status']="0";
-               break;
-            }
-        }
-
-        setJsonFile('db.json',$json_a);
-      }
 
 }
 
@@ -39,7 +25,7 @@ class Action_Todo_Delete extends Action {
 
 $tstObj = new Action_Todo_Delete();
 
-$tstObj->updateItem($_POST["id"]);
+$tstObj->deleteItem($_POST["id"]);
 
 
 ?>
