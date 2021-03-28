@@ -1,4 +1,5 @@
 <?php
+
 class Connection
 {
 
@@ -6,8 +7,8 @@ class Connection
     public static $instance;
     private $dbhost = '';
     private $dbname = '';
-    private $dbuser  = '';
-    private $dbpass  = '';
+    private $dbuser = '';
+    private $dbpass = '';
 
     private function __construct()
     {
@@ -17,23 +18,27 @@ class Connection
         $this->dbport = $data['dbport'];
         $this->dbuser = $data['dbuser'];
         $this->dbpass = $data['dbpass'];
-        $this->connection = new PDO('mysql:host='.$this->dbhost.';dbname='.$this->dbname, $this->dbuser, $this->dbpass);
+        $this->connection = new PDO('mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname, $this->dbuser, $this->dbpass);
     }
 
     public static function getInstance()
     {
         // instance tanımlı mı bakalım, değilse oluşturalım
-        if(!self::$instance) {
+        if (!self::$instance) {
             self::$instance = new self();
         }
         return self::$instance;
     }
 
     // dışarıdan kopyalanmasını engelledik
-    private function __clone() { }
+    private function __clone()
+    {
+    }
 
     // unserialize edilmesini engelledik
-    private function __wakeup() { }
+    private function __wakeup()
+    {
+    }
 
     // PDO bağlantısını döndürelim
     public function getConnection()
@@ -41,11 +46,12 @@ class Connection
         return $this->connection;
     }
 
-    private function getConfigDataFromJsonFile(){
-        $filename = __DIR__.'/dbconfig.json';
-        $json_b = array('sonuc'=>-1);
+    private function getConfigDataFromJsonFile()
+    {
+        $filename = __DIR__ . '/dbconfig.json';
+        $json_b = array('sonuc' => -1);
 
-        if(file_exists($filename)){
+        if (file_exists($filename)) {
             $string = file_get_contents($filename);
             return json_decode($string, true);
         }

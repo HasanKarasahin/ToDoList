@@ -5,15 +5,18 @@ include_once "../../dbConecttion.php";
 include_once "../ToDo/Action.php";
 
 
-class Action_Todo_Delete extends Action {
+class Action_Todo_Delete extends Action
+{
 
     public $itemArr;
     public $item;
 
-    function __construct() {
+    function __construct()
+    {
     }
 
-    function deleteItem($id) {
+    function deleteItem($id)
+    {
         print_r($id);
         deleteTodo($id);
     }

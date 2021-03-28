@@ -1,10 +1,12 @@
-<?php 
+<?php
 
 //include_once "../functions.php";
 
-class Action{
+class Action
+{
 
-    public function display($data){
+    public function display($data)
+    {
         echo $data;
     }
 

@@ -1,69 +1,66 @@
-$( document ).ready(function() {
+$(document).ready(function () {
 
     $.post({
-        url: window.location.href+"/Data/Todo/Data_Todo_AllData.php",
-        data: {name:"Hasan",surname:"Karasahin"},
-        success: function(data) {
+        url: window.location.href + "/Data/Todo/Data_Todo_AllData.php",
+        data: {name: "Hasan", surname: "Karasahin"},
+        success: function (data) {
             console.table(data);
             $("tbody").append(data);
         },
-        error:function(e){
+        error: function (e) {
             alert("error");
         }
-      });
+    });
 
-        var exampleAddModal = document.getElementById('exampleAddModal')
-        //var modalBodyButton = exampleAddModal.querySelector('.modal-footer .btn.btn-primary')
-        //var modalForm = exampleAddModal.querySelector('.modal-body #exampleFormModal')
-/*
-        $(modalBodyButton).click(function () {
-            $.post({
-                url: "Actions/ToDo/Action_Todo_Add.php",
-                data: $(modalForm).serialize(),
-                success: function(data) {
-                    console.table(data);
-                    $("tbody").append(data);
-                },
-                error:function(e){
-                    alert("error");
-                    console.log(e);
-                }
-              });
-        })*/
-
-
-        /*var exampleUpdateModal = document.getElementById('exampleUpdateModal')
-        var modalBodyUpdateButton = exampleUpdateModal.querySelector('.modal-footer .btn.btn-primary')
-        var modalUpdateForm = exampleUpdateModal.querySelector('.modal-body #exampleFormModal')
-
-        $(modalBodyUpdateButton).click(function () {
-            $.post({
-                url: window.location.href+"/Actions/ToDo/Action_Todo_Update.php",
-                data: $(modalUpdateForm).serialize(),
-                success: function(data) {
-                    console.table(data);
-                    $("tbody").append(data);
-                },
-                error:function(e){
-                    alert("error");
-                    console.log(e);
-                }
-              });
-        })*/
+    var exampleAddModal = document.getElementById('exampleAddModal')
+    //var modalBodyButton = exampleAddModal.querySelector('.modal-footer .btn.btn-primary')
+    //var modalForm = exampleAddModal.querySelector('.modal-body #exampleFormModal')
+    /*
+            $(modalBodyButton).click(function () {
+                $.post({
+                    url: "Actions/ToDo/Action_Todo_Add.php",
+                    data: $(modalForm).serialize(),
+                    success: function(data) {
+                        console.table(data);
+                        $("tbody").append(data);
+                    },
+                    error:function(e){
+                        alert("error");
+                        console.log(e);
+                    }
+                  });
+            })*/
 
 
+    /*var exampleUpdateModal = document.getElementById('exampleUpdateModal')
+    var modalBodyUpdateButton = exampleUpdateModal.querySelector('.modal-footer .btn.btn-primary')
+    var modalUpdateForm = exampleUpdateModal.querySelector('.modal-body #exampleFormModal')
 
-        
-        exampleAddModal.addEventListener('show.bs.modal', function (event) {
-            // Button that triggered the modal
+    $(modalBodyUpdateButton).click(function () {
+        $.post({
+            url: window.location.href+"/Actions/ToDo/Action_Todo_Update.php",
+            data: $(modalUpdateForm).serialize(),
+            success: function(data) {
+                console.table(data);
+                $("tbody").append(data);
+            },
+            error:function(e){
+                alert("error");
+                console.log(e);
+            }
+          });
+    })*/
+
+
+    exampleAddModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
         var recipient = button.getAttribute('data-bs-whatever')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
-        
-        });
 
+    });
 
 
     $('#exampleUpdateModal').on('show.bs.modal', function (event) {
@@ -72,21 +69,20 @@ $( document ).ready(function() {
         modal.find('#id').val(button.data('todo-id'))
         console.log(modal.find('.btnUpdate'));
 
-        modal.find('.btnUpdate').click(()=>{
+        modal.find('.btnUpdate').click(() => {
             $.post({
-                url: window.location.href+"Actions/ToDo/Action_Todo_Update.php",
+                url: window.location.href + "Actions/ToDo/Action_Todo_Update.php",
                 data: $(exampleUpdateFormModal).serialize(),
-                success: function(data) {
+                success: function (data) {
                     console.table(data);
                     //$("tbody").append(data);
                 },
-                error:function(e){
+                error: function (e) {
                     alert("error");
                     console.log(e);
                 }
             });
         });
-
 
 
         /*
@@ -97,9 +93,6 @@ $( document ).ready(function() {
          modal.find('.modal-title').text('New message to ' + recipient)
          modal.find('.modal-body input').val(recipient)*/
     })
-
-
-       
 
 
 });

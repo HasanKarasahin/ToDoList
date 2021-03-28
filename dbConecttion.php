@@ -2,7 +2,8 @@
 include_once "db/Connection.php";
 include_once "Model/ToDo/Item.php";
 
-function addTodo(Item $data) {
+function addTodo(Item $data)
+{
     try {
         $dbh = Connection::getInstance()->getConnection();
 
@@ -13,8 +14,8 @@ function addTodo(Item $data) {
         $todo = $data->get_toDo();
         $endDate = $data->get_endDate();
 
-        $stmt->bindParam(':todo', $todo, PDO::PARAM_STR,32);
-        $stmt->bindParam(':endDate', $endDate, PDO::PARAM_STR,10);
+        $stmt->bindParam(':todo', $todo, PDO::PARAM_STR, 32);
+        $stmt->bindParam(':endDate', $endDate, PDO::PARAM_STR, 10);
 
         $stmt->execute();
 
@@ -30,21 +31,22 @@ function addTodo(Item $data) {
     return null;
 }
 
-function getTodos(){
+function getTodos()
+{
     try {
         $dbh = Connection::getInstance()->getConnection();
 
-        $sql="CALL `sp_GetTodos`();";
+        $sql = "CALL `sp_GetTodos`();";
         $arr = array();
 
         foreach ($dbh->query($sql) as $row) {
 
-            array_push($arr,array(
-                "id"=>$row['id'],
-                "todo"=>$row['todo'],
-                "createdDate"=>$row['createdDate'],
-                "done"=>$row['done'],
-                "endDate"=>$row['endDate']
+            array_push($arr, array(
+                "id" => $row['id'],
+                "todo" => $row['todo'],
+                "createdDate" => $row['createdDate'],
+                "done" => $row['done'],
+                "endDate" => $row['endDate']
             ));
 
         }
@@ -57,7 +59,8 @@ function getTodos(){
     return null;
 }
 
-function deleteTodo($id){
+function deleteTodo($id)
+{
     try {
         $dbh = Connection::getInstance()->getConnection();
 
@@ -65,7 +68,7 @@ function deleteTodo($id){
 
         $stmt = $dbh->prepare($sql);
 
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT,32);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT, 32);
 
         $stmt->execute();
 
@@ -78,7 +81,8 @@ function deleteTodo($id){
     return null;
 }
 
-function updateTodo($id,Item $newData){
+function updateTodo($id, Item $newData)
+{
     try {
         $dbh = Connection::getInstance()->getConnection();
 
@@ -86,12 +90,12 @@ function updateTodo($id,Item $newData){
 
         $stmt = $dbh->prepare($sql);
 
-        $todo=$newData->get_toDo();
-        $endDate=$newData->get_endDate();
+        $todo = $newData->get_toDo();
+        $endDate = $newData->get_endDate();
 
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT,32);
-        $stmt->bindParam(':todo', $todo, PDO::PARAM_STR,32);
-        $stmt->bindParam(':endDate', $endDate, PDO::PARAM_STR,32);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT, 32);
+        $stmt->bindParam(':todo', $todo, PDO::PARAM_STR, 32);
+        $stmt->bindParam(':endDate', $endDate, PDO::PARAM_STR, 32);
 
         $stmt->execute();
 
