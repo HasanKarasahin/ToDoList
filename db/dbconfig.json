@@ -1,7 +1,7 @@
 {
   "dbhost": "127.0.0.1",
   "dbname": "tododb",
-  "dbport": "3306",
+  "dbport": "3307",
   "dbuser": "root",
-  "dbpass": "password"
+  "dbpass": "4585185"
 }

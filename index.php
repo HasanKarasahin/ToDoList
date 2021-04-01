@@ -162,9 +162,13 @@ ob_start(); ?>
                     </div>
                     <br/>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
+                        <input type="datetime-local" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
                                required>
+
+
                     </div>
+
+
 
                 </div>
                 <div class="modal-footer">
@@ -196,7 +200,7 @@ ob_start(); ?>
                     </div>
                     <br/>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
+                        <input type="datetime-local" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
                                required>
                     </div>
                 </form>

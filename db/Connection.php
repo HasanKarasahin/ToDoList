@@ -18,7 +18,12 @@ class Connection
         $this->dbport = $data['dbport'];
         $this->dbuser = $data['dbuser'];
         $this->dbpass = $data['dbpass'];
-        $this->connection = new PDO('mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname, $this->dbuser, $this->dbpass);
+
+        $dsn = 'mysql:dbname='.$this->dbname.';host=127.0.0.1';
+        $user = $this->dbuser;
+        $password = $this->dbpass;
+
+        $this->connection = new PDO($dsn, $user, $password);
     }
 
     public static function getInstance()

@@ -21,6 +21,6 @@ $item->set_endDate($_POST['endDate']);
 
 $tstObj = new Action_Todo_Add();
 $tstObj->addItem($item);
-//header('Location: /');
+header('Location: /ToDoList');
 
 ?>

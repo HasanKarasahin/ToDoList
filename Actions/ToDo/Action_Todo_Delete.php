@@ -17,7 +17,6 @@ class Action_Todo_Delete extends Action
 
     function deleteItem($id)
     {
-        print_r($id);
         deleteTodo($id);
     }
 
