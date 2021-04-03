@@ -63,11 +63,34 @@ $(document).ready(function () {
     });
 
 
+
+
+
     $('#exampleUpdateModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var modal = $(this)
         modal.find('#id').val(button.data('todo-id'))
         console.log(modal.find('.btnUpdate'));
+
+        $.post({
+            url: window.location.href + "/Data/Todo/Get_Data.php",
+            data: {id: button.data('todo-id')},
+            dataType: "json",
+            success: function (responseData) {
+
+                modal.find('input[name="toDo"]').val(responseData[0].todo);
+                modal.find('input[name="endDate"]').val(responseData[0].endDateFormat);
+
+                //
+                console.log(responseData[0]);
+
+            },
+            error: function (err) {
+                console.log("Error. Method:postAjax")
+            }
+        });
+
+
 
         modal.find('.btnUpdate').click(() => {
             $.post({

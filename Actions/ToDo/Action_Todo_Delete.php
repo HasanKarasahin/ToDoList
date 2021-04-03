@@ -27,6 +27,7 @@ class Action_Todo_Delete extends Action
 
 $tstObj = new Action_Todo_Delete();
 
+//$tstObj->deleteItem($_POST["id"]);
 $tstObj->deleteItem($_POST["id"]);
 
 

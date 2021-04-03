@@ -25,7 +25,7 @@ ob_start(); ?>
         function fnDelete($id) {
 
             $filePath = "Todo/Action_Todo_Delete";
-
+            console.log($id);
             $.post({
                 url: window.location.href + "/Actions/" + $filePath + ".php",
                 data: {id: $id},
@@ -80,7 +80,7 @@ ob_start(); ?>
 
 </head>
 
-<body class="p-3 mb-2 bg-primary">
+<body class="p-3 mb-2">
 
 <div class="form-group">
     <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleAddModal"
@@ -91,7 +91,7 @@ ob_start(); ?>
 </div>
 
 
-<div class="row">
+<div class="row content">
     <div class="col">
         <div class="card">
             <div class="card-body">
@@ -162,7 +162,7 @@ ob_start(); ?>
                     </div>
                     <br/>
                     <div class="form-group">
-                        <input type="datetime-local" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
+                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
                                required>
 
 

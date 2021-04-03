@@ -3,7 +3,16 @@
 include_once "../../functions.php";
 include_once "../../dbConecttion.php";
 
-$data = getTodos();
+header('Content-type: application/json');
+
+$data = getTodos($_POST['id']);
+if($data!=false){
+    print_r(json_encode($data));
+}else{
+    print_r("Data Yok");
+}
+
+/*
 if($data!=false){
     $arrViews = array();
     $rowCount = 1;
@@ -14,7 +23,7 @@ if($data!=false){
     print_r($arrViews);
 }else{
     print_r("Data Yok");
-}
+}*/
 
 
 ?>

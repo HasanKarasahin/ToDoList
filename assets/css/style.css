@@ -1,9 +1,22 @@
 table > tbody > tr:hover {
     opacity: 0.5;
-    background-color: rgb(255, 248, 220);
     cursor: pointer;
 }
 
 .selected-tr {
     background-color: rgb(255, 248, 207);
 }
+
+body{
+    background: #f0f0f0;
+}
+
+table{
+    background: #f0f0f0;
+}
+table > tbody {
+    background: #f0f0f0;
+}
+
+
+
