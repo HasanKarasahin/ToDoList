@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -77,13 +77,13 @@ ob_start(); ?>
             });
         }
 
-        function fnSearch(){
+        function fnSearch() {
 
-            var $searchData =  $('#searchInput').val();
+            var $searchData = $('#searchInput').val();
 
 
             $.post({
-                url: window.location.href +"Data/Todo/Data_Todo_Search.php",
+                url: window.location.href + "Data/Todo/Data_Todo_Search.php",
                 data: {data: $searchData},
                 success: function (responseData) {
 
@@ -108,8 +108,6 @@ ob_start(); ?>
 <body class="p-3 mb-2">
 
 <div class="form-group" style="display: flex;justify-content: space-between">
-
-
 
 
     <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleAddModal"
@@ -196,16 +194,15 @@ ob_start(); ?>
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <input type="text" class="form-control" name="toDo" placeholder="Yapılacak iş" required>
+                        <label for="toDo">Yapılacak iş: </label>
+                        <textarea class="form-control" name="toDo" rows="3" required></textarea>
                     </div>
                     <br/>
                     <div class="form-group">
-                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
-                               required>
-
-
+                        <label for="toDo">Bitmesi planlanan tarih: </label>
+                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}"
+                               class="form-control" name="endDate" required>
                     </div>
-
 
 
                 </div>
@@ -233,13 +230,16 @@ ob_start(); ?>
                     <div class="form-group">
                         <input type="hidden" class="form-control" name="id" id="id" value="0">
                     </div>
+
                     <div class="form-group">
-                        <input type="text" class="form-control" name="toDo" placeholder="Yapılacak iş" required>
+                        <label for="toDo">Yapılacak iş: </label>
+                        <textarea class="form-control" name="toDo" rows="3" required></textarea>
                     </div>
                     <br/>
                     <div class="form-group">
-                        <input type="datetime-local" class="form-control" name="endDate" placeholder="Bitmesi planlanan tarih"
-                               required>
+                        <label for="toDo">Bitmesi planlanan tarih: </label>
+                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}"
+                               class="form-control" name="endDate">
                     </div>
                 </form>
             </div>

@@ -78,7 +78,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (responseData) {
 
-                modal.find('input[name="toDo"]').val(responseData[0].todo);
+                modal.find('textarea[name="toDo"]').val(responseData[0].todo);
                 modal.find('input[name="endDate"]').val(responseData[0].endDateFormat);
 
                 //
