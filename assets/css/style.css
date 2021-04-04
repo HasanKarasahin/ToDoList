@@ -17,6 +17,10 @@ table{
 table > tbody {
     background: #f0f0f0;
 }
+#myInput{
+    margin-right: 5px !important;
+
+}
 
 
 

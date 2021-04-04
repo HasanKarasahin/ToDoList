@@ -16,6 +16,7 @@ ob_start(); ?>
     <title>Todo List</title>
     <link rel="stylesheet" href="assets/css/boostrap5.0.0Beta.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <script src="assets/js/jquery3.5.1.js"></script>
@@ -82,12 +83,25 @@ ob_start(); ?>
 
 <body class="p-3 mb-2">
 
-<div class="form-group">
+<div class="form-group" style="display: flex;justify-content: space-between">
+
+
+
+
     <button type="button" class="btn btn-success btn-add" data-bs-toggle="modal" data-bs-target="#exampleAddModal"
-            style="margin-bottom: 5px;border-radius: 5px;">Ekle
+            style="margin-bottom: 5px;border-radius: 5px;">
+        <i class="fa fa-plus"></i>
     </button>
-    <input type="text" class="form-control" id="myInput" placeholder="Arama"
-           style="width: 250px;float: right;border: 1px solid green;border-radius: 5px;">
+
+
+    <div style="width: 300px;display:flex;border-radius: 5px;margin-bottom: 5px">
+        <input type="text" class="form-control" id="myInput" placeholder="Arama">
+        <button type="button" class="btn btn-success">
+            <i class="fa fa-search"></i>
+        </button>
+
+    </div>
+
 </div>
 
 
