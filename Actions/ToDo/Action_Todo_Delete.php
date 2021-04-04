@@ -1,8 +1,8 @@
 <?php
 
-include_once "../../functions.php";
-include_once "../../dbConecttion.php";
-include_once "../ToDo/Action.php";
+include_once __DIR__."/../../functions.php";
+include_once __DIR__."/../../dbConecttion.php";
+include_once __DIR__."/../Action.php";
 
 
 class Action_Todo_Delete extends Action

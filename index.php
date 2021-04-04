@@ -77,6 +77,30 @@ ob_start(); ?>
             });
         }
 
+        function fnSearch(){
+
+            var $searchData =  $('#searchInput').val();
+
+
+            $.post({
+                url: window.location.href +"Data/Todo/Data_Todo_Search.php",
+                data: {data: $searchData},
+                success: function (responseData) {
+
+                    console.log(responseData);
+
+                    $("tbody").html('');
+                    $("tbody").append(responseData);
+
+                    //$("tr[data-item-id='" + $id + "']").hide();
+
+                },
+                error: function (err) {
+                    console.table(err);
+                }
+            });
+        }
+
     </script>
 
 </head>
@@ -95,8 +119,8 @@ ob_start(); ?>
 
 
     <div style="width: 300px;display:flex;border-radius: 5px;margin-bottom: 5px">
-        <input type="text" class="form-control" id="myInput" placeholder="Arama">
-        <button type="button" class="btn btn-success">
+        <input type="text" class="form-control" id="searchInput" placeholder="Arama">
+        <button type="button" class="btn btn-success" onclick="fnSearch()">
             <i class="fa fa-search"></i>
         </button>
 

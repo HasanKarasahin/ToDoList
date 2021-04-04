@@ -14,35 +14,35 @@ function addTodo(Item $data)
         $todo = $data->get_toDo();
         $endDate = $data->get_endDate();
 
-        $stmt->bindParam(':prmTodo', $todo, PDO::PARAM_STR, 32);
+        $stmt->bindParam(':prmTodo', $todo, PDO::PARAM_STR, 300);
         $stmt->bindParam(':prmEndDate', $endDate, PDO::PARAM_STR, 10);
 
         $stmt->execute();
 
         $stmt->closeCursor();
 
-        /*$row = $dbh->query("SELECT @result AS result")->fetch(PDO::FETCH_ASSOC);
-        if ($row) {
-            return $row !== false ? $row['result'] : null;
-        }*/
     } catch (PDOException $e) {
         die("Error occurred:" . $e->getMessage());
     }
     return null;
 }
 
-function getTodos($id=0)
+function getTodos($id=0,$searchData='NULL')
 {
     try {
         $dbh = Connection::getInstance()->getConnection();
 
-        $sql = "CALL `sp_GetTodos`(".$id.");";
-        $arr = array();
+        $sql = " CALL `sp_GetTodos`(:prmId,:prmSearch);";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':prmId', $id, PDO::PARAM_INT, 32);
+        $stmt->bindParam(':prmSearch', $searchData, PDO::PARAM_STR, 10);
+        $stmt->execute();
 
-        $arrDb = $dbh->query($sql);
+        $arr = array();
+        $arrDb = $stmt->fetchAll();
+
         if($arrDb != '') {
             foreach ($arrDb as $row) {
-
                 array_push($arr, array(
                     "id" => $row['id'],
                     "todo" => $row['todo'],
@@ -51,7 +51,6 @@ function getTodos($id=0)
                     "endDate" => $row['endDate'],
                     "endDateFormat" => $row['endDateFormat']
                 ));
-
             }
         }else{
             return false;
@@ -104,7 +103,7 @@ function updateTodo($id, Item $newData)
         $endDate = $newData->get_endDate();
 
         $stmt->bindParam(':prmId', $id, PDO::PARAM_INT, 32);
-        $stmt->bindParam(':prmTodo', $todo, PDO::PARAM_STR, 32);
+        $stmt->bindParam(':prmTodo', $todo, PDO::PARAM_STR, 300);
         $stmt->bindParam(':prmEndDate', $endDate, PDO::PARAM_STR, 32);
 
         $stmt->execute();

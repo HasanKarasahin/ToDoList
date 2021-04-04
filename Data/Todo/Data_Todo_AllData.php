@@ -1,7 +1,7 @@
 <?php
 
-include_once "../../functions.php";
-include_once "../../dbConecttion.php";
+include_once __DIR__."/../../functions.php";
+include_once __DIR__."/../../dbConecttion.php";
 
 $data = getTodos();
 if($data!=false){
