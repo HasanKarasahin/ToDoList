@@ -134,7 +134,7 @@ ob_start(); ?>
                 <h5 class="card-title">Todo List</h5>
                 <p class="card-text">
 
-
+                <div class="table-responsive-sm">
                 <table class="table">
                     <thead>
                     <tr>
@@ -151,7 +151,7 @@ ob_start(); ?>
 
                     </tbody>
                 </table>
-
+                </div>
                 </p>
             </div>
         </div>
@@ -200,8 +200,7 @@ ob_start(); ?>
                     <br/>
                     <div class="form-group">
                         <label for="toDo">Bitmesi planlanan tarih: </label>
-                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}"
-                               class="form-control" name="endDate" required>
+                        <input type="datetime-local" class="form-control" name="endDate" min="2021-01-01" required>
                     </div>
 
 
@@ -238,8 +237,7 @@ ob_start(); ?>
                     <br/>
                     <div class="form-group">
                         <label for="toDo">Bitmesi planlanan tarih: </label>
-                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}"
-                               class="form-control" name="endDate">
+                        <input type="datetime-local" class="form-control" name="endDate" min="2021-01-01" required>
                     </div>
                 </form>
             </div>
